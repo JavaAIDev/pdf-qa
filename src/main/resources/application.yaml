@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: pdf-qa
+  threads:
+    virtual:
+      enabled: true
+  ai:
+    ollama:
+      chat:
+        options:
+          model: "phi3"
+          temperature: 0
+      embedding:
+        options:
+          model: "bge-large"
+    vectorstore:
+      chroma:
+        collectionName: pdf-qa
+        initializeSchema: true
