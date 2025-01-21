@@ -16,16 +16,10 @@ spring:
         options:
           model: "bge-large"
     openai:
-      api-key: ${OPENAI_API_KEY:}
       chat:
         enabled: false
-        options:
-          model: gpt-3.5-turbo
-          temperature: 0.0
       embedding:
         enabled: false
-        options:
-          model: text-embedding-3-small
     vectorstore:
       chroma:
         collectionName: pdf-qa

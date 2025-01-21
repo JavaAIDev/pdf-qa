@@ -6,7 +6,13 @@ spring:
       embedding:
         enabled: false
     openai:
+      api-key: ${OPENAI_API_KEY:}
       chat:
         enabled: true
+        options:
+          model: gpt-3.5-turbo
+          temperature: 0.0
       embedding:
         enabled: true
+        options:
+          model: text-embedding-3-small
