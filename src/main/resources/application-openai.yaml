@@ -6,7 +6,7 @@ spring:
       embedding:
         enabled: false
     openai:
-      api-key: ${OPENAI_API_KEY:}
+      api-key: ${OPENAI_API_KEY:demo}
       chat:
         enabled: true
         options:
