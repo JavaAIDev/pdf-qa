@@ -32,6 +32,7 @@ public class PDFContentLoader implements CommandLineRunner {
   public void run(String... args) throws Exception {
     var markerFile = Path.of(".", ".pdf-imported");
     if (Files.exists(markerFile)) {
+      LOGGER.info("Marker file {} exists, skip. Delete this file to re-import.", markerFile);
       return;
     }
     load(Path.of(".", "content", "Understanding_Climate_Change.pdf"));

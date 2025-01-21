@@ -1,0 +1,12 @@
+spring:
+  ai:
+    ollama:
+      chat:
+        enabled: false
+      embedding:
+        enabled: false
+    openai:
+      chat:
+        enabled: true
+      embedding:
+        enabled: true
