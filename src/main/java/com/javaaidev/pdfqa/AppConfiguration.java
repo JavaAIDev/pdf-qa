@@ -1,6 +1,7 @@
 package com.javaaidev.pdfqa;
 
 import org.springframework.ai.chat.client.advisor.QuestionAnswerAdvisor;
+import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
 import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.context.annotation.Bean;
@@ -12,6 +13,11 @@ public class AppConfiguration {
   @Bean
   public QuestionAnswerAdvisor questionAnswerAdvisor(VectorStore vectorStore) {
     return new QuestionAnswerAdvisor(vectorStore, SearchRequest.builder().topK(3).build());
+  }
+
+  @Bean
+  public SimpleLoggerAdvisor simpleLoggerAdvisor() {
+    return new SimpleLoggerAdvisor();
   }
 
   @Bean

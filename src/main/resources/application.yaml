@@ -21,6 +21,12 @@ spring:
       embedding:
         enabled: false
     vectorstore:
-      chroma:
-        collectionName: pdf-qa
+      pgvector:
         initializeSchema: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+logging:
+  level:
+    org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor: DEBUG

@@ -1,9 +1,13 @@
 services:
-  chroma:
-    image: chromadb/chroma:0.6.1
+  postgres:
+    image: pgvector/pgvector:0.8.0-pg16
     volumes:
-      - chroma-data:/chroma/chroma
+      - postgresql-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: "postgres"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
     ports:
-      - "8000:8000"
+      - "5432:5432"
 volumes:
-  chroma-data:
+  postgresql-data:

@@ -10,7 +10,7 @@ spring:
       chat:
         enabled: true
         options:
-          model: gpt-3.5-turbo
+          model: gpt-4o
           temperature: 0.0
       embedding:
         enabled: true

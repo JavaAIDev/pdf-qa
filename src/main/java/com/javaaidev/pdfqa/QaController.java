@@ -2,6 +2,7 @@ package com.javaaidev.pdfqa;
 
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.QuestionAnswerAdvisor;
+import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,8 +12,12 @@ public class QaController {
 
   private final ChatClient chatClient;
 
-  public QaController(ChatClient.Builder builder, QuestionAnswerAdvisor questionAnswerAdvisor) {
-    this.chatClient = builder.defaultAdvisors(questionAnswerAdvisor).build();
+  public QaController(ChatClient.Builder builder,
+      QuestionAnswerAdvisor questionAnswerAdvisor,
+      SimpleLoggerAdvisor simpleLoggerAdvisor) {
+    this.chatClient = builder.defaultAdvisors(
+        questionAnswerAdvisor,
+        simpleLoggerAdvisor).build();
   }
 
   @PostMapping("/qa")
