@@ -1,0 +1,13 @@
+spring:
+  config:
+    import:
+      - optional:classpath:config/shared.yaml
+  ai:
+    ollama:
+      chat:
+        options:
+          model: "phi3"
+          temperature: 0
+      embedding:
+        options:
+          model: "bge-large"

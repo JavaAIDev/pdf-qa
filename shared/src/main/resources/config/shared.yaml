@@ -4,22 +4,6 @@ spring:
   threads:
     virtual:
       enabled: true
-  ai:
-    ollama:
-      chat:
-        enabled: true
-        options:
-          model: "phi3"
-          temperature: 0
-      embedding:
-        enabled: true
-        options:
-          model: "bge-large"
-    openai:
-      chat:
-        enabled: false
-      embedding:
-        enabled: false
     vectorstore:
       pgvector:
         initializeSchema: true

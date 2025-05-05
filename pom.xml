@@ -7,22 +7,25 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.4.4</version>
+    <version>3.4.5</version>
     <relativePath/>
   </parent>
 
-  <groupId>com.javaaidev</groupId>
+  <groupId>com.javaaidev.pdfqa</groupId>
   <artifactId>pdf-qa</artifactId>
   <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <modules>
+    <module>shared</module>
+    <module>deployment</module>
+  </modules>
 
   <properties>
     <java.version>21</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <spring-ai.version>1.0.0-M6</spring-ai.version>
-    <chat-agent-ui.version>0.11.0</chat-agent-ui.version>
-    <llm-agent-spec.version>0.1.2</llm-agent-spec.version>
+    <spring-ai.version>1.0.0-M8</spring-ai.version>
   </properties>
 
   <dependencyManagement>
@@ -36,54 +39,4 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
-
-  <dependencies>
-    <dependency>
-      <groupId>org.springframework.ai</groupId>
-      <artifactId>spring-ai-pgvector-store-spring-boot-starter</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.ai</groupId>
-      <artifactId>spring-ai-ollama-spring-boot-starter</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.ai</groupId>
-      <artifactId>spring-ai-openai-spring-boot-starter</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.ai</groupId>
-      <artifactId>spring-ai-pdf-document-reader</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springdoc</groupId>
-      <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-      <version>2.5.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.javaaidev.chatagentui</groupId>
-      <artifactId>chat-agent-ui</artifactId>
-      <version>${chat-agent-ui.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.javaaidev.llmagentspec</groupId>
-      <artifactId>spring-ai-adapter</artifactId>
-      <version>${llm-agent-spec.version}</version>
-    </dependency>
-  </dependencies>
-
-  <repositories>
-    <repository>
-      <id>spring-milestones</id>
-      <name>Spring Milestones</name>
-      <url>https://repo.spring.io/milestone</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
-
 </project>
