@@ -10,6 +10,7 @@
   </parent>
 
   <artifactId>deployment-openai</artifactId>
+  <name>Deployment :: OpenAI</name>
 
   <dependencies>
     <dependency>

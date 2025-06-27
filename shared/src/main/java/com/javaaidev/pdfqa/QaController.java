@@ -4,9 +4,9 @@ import com.javaaidev.chatagent.model.ChatAgentRequest;
 import com.javaaidev.chatagent.model.ChatAgentResponse;
 import com.javaaidev.chatagent.springai.ModelAdapter;
 import org.springframework.ai.chat.client.ChatClient;
-import org.springframework.ai.chat.client.advisor.QuestionAnswerAdvisor;
 import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
 import org.springframework.ai.chat.messages.Message;
+import org.springframework.ai.rag.advisor.RetrievalAugmentationAdvisor;
 import org.springframework.http.codec.ServerSentEvent;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,10 +19,10 @@ public class QaController {
   private final ChatClient chatClient;
 
   public QaController(ChatClient.Builder builder,
-      QuestionAnswerAdvisor questionAnswerAdvisor,
+      RetrievalAugmentationAdvisor ragAdvisor,
       SimpleLoggerAdvisor simpleLoggerAdvisor) {
     this.chatClient = builder.defaultAdvisors(
-        questionAnswerAdvisor,
+        ragAdvisor,
         simpleLoggerAdvisor).build();
   }
 

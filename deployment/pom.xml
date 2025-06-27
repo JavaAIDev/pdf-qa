@@ -11,6 +11,7 @@
 
   <artifactId>deployment</artifactId>
   <packaging>pom</packaging>
+  <name>Deployment</name>
   <modules>
     <module>ollama</module>
     <module>openai</module>

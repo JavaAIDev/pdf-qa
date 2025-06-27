@@ -10,6 +10,7 @@
   </parent>
 
   <artifactId>deployment-ollama</artifactId>
+  <name>Deployment :: Ollama</name>
 
   <dependencies>
     <dependency>
