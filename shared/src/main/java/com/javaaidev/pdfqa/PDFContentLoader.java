@@ -12,7 +12,8 @@ import org.springframework.core.io.FileSystemResource;
 
 public class PDFContentLoader implements CommandLineRunner {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(PDFContentLoader.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(
+      PDFContentLoader.class);
   private final VectorStore vectorStore;
 
   public PDFContentLoader(VectorStore vectorStore) {
@@ -21,7 +22,8 @@ public class PDFContentLoader implements CommandLineRunner {
 
   public void load(Path pdfFilePath) {
     LOGGER.info("Load PDF file {}", pdfFilePath);
-    var reader = new PagePdfDocumentReader(new FileSystemResource(pdfFilePath));
+    var reader = new PagePdfDocumentReader(
+        new FileSystemResource(pdfFilePath));
     var splitter = new TokenTextSplitter();
     var docs = splitter.split(reader.read());
     vectorStore.add(docs);
@@ -32,7 +34,9 @@ public class PDFContentLoader implements CommandLineRunner {
   public void run(String... args) throws Exception {
     var markerFile = Path.of(".", ".pdf-imported");
     if (Files.exists(markerFile)) {
-      LOGGER.info("Marker file {} exists, skip. Delete this file to re-import.", markerFile);
+      LOGGER.info(
+          "Marker file {} exists, skip. Delete this file to re-import.",
+          markerFile);
       return;
     }
     load(Path.of(".", "content", "Understanding_Climate_Change.pdf"));

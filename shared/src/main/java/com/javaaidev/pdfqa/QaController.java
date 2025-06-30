@@ -27,10 +27,12 @@ public class QaController {
   }
 
   @PostMapping("/chat")
-  public Flux<ServerSentEvent<ChatAgentResponse>> qa(@RequestBody ChatAgentRequest request) {
+  public Flux<ServerSentEvent<ChatAgentResponse>> qa(
+      @RequestBody ChatAgentRequest request) {
     return ModelAdapter.toStreamingResponse(
         chatClient.prompt()
-            .messages(ModelAdapter.fromRequest(request).toArray(new Message[0]))
+            .messages(
+                ModelAdapter.fromRequest(request).toArray(new Message[0]))
             .stream()
             .chatResponse());
   }

@@ -11,9 +11,11 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfiguration {
 
   @Bean
-  public RetrievalAugmentationAdvisor questionAnswerAdvisor(VectorStore vectorStore) {
+  public RetrievalAugmentationAdvisor questionAnswerAdvisor(
+      VectorStore vectorStore) {
     return RetrievalAugmentationAdvisor.builder().documentRetriever(
-        VectorStoreDocumentRetriever.builder().vectorStore(vectorStore).build()
+        VectorStoreDocumentRetriever.builder().vectorStore(vectorStore)
+            .build()
     ).build();
   }
 
