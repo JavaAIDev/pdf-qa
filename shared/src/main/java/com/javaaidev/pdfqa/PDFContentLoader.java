@@ -24,7 +24,7 @@ public class PDFContentLoader implements CommandLineRunner {
     LOGGER.info("Load PDF file {}", pdfFilePath);
     var reader = new PagePdfDocumentReader(
         new FileSystemResource(pdfFilePath));
-    var splitter = new TokenTextSplitter();
+    var splitter = TokenTextSplitter.builder().build();
     var docs = splitter.split(reader.read());
     vectorStore.add(docs);
     LOGGER.info("Loaded {} docs", docs.size());
